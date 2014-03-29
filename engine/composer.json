@@ -1,0 +1,8 @@
+{
+    "require": {
+        "doctrine/orm": "2.3.*@dev",
+        "phptal/phptal": "dev-master",
+        "Respect/Validation": "dev-master",
+        "pagerfanta/pagerfanta": "dev-master"
+    }
+}

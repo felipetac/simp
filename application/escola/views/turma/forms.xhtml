@@ -1,0 +1,23 @@
+<form metal:define-macro="buscar" id="formBuscar" action="escola/turma/buscar" method="post" class="ui-corner-all">
+	<tal:block metal:use-macro="form-turma-nome" />
+	<div class="form-actions">
+		<button type="submit" class="btnBuscar">Buscar</button>
+		<a href="escola/turma" class="btnLimpar">Limpar</a>
+	</div>
+</form>
+
+<form metal:define-macro="gravar" id="formGravar" action="escola/turma/gravar" method="post" class="ui-corner-all" style="position: relative; top:7px;">
+	<input type="hidden" id="id" name="id" tal:attributes="value id | ''" />
+	<tal:block metal:use-macro="form-turma-nome" />
+	<div class="form-actions">
+		<button type="submit" class="btnSalvar">Salvar</button>
+		<a href="escola/turma" class="btnCancelar">Cancelar</a>
+	</div>
+</form>
+
+<div metal:define-macro="form-turma-nome" tal:omit-tag="">
+	<label for="nome">Nome</label> 
+	<input type="text" id="nome" name="nome" 
+	       style="width: 400px !important;" 
+		   tal:attributes="value nome | ''" /><br />
+</div>

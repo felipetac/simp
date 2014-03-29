@@ -1,0 +1,20 @@
+<div metal:define-macro="css" tal:omit-tag="">
+	<!-- CSS  -->
+    <link rel="stylesheet" type="text/css" href="application/site/public/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="application/site/public/css/public.css" />
+    <link rel="stylesheet" type="text/css" href="application/site/public/css/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="application/site/public/css/jquery-ui-multiselect.css" />
+    <link rel="stylesheet" type="text/css" href="application/site/public/css/jquery.qtip.min.css" />
+    <link metal:define-slot="stylesheet" tal:omit-tag="" />
+</div>
+
+<div metal:define-macro="javascript" tal:omit-tag="">
+    <!-- JavaScript -->
+    <script type="text/javascript" src="application/site/public/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="application/site/public/js/jquery-ui-1.8.18.min.js"></script>
+    <script type="text/javascript" src="application/site/public/js/jquery-ui-combobox.js"></script>
+    <script type="text/javascript" src="application/site/public/js/jquery-ui-multiselect.js"></script>
+    <script type="text/javascript" src="application/site/public/js/jquery.qtip.min.js"></script>
+    <script type="text/javascript" src="application/site/public/js/public.js"></script>
+    <script metal:define-slot="javascript" tal:omit-tag=""></script>
+</div>

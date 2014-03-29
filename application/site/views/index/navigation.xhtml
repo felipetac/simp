@@ -1,0 +1,15 @@
+<div metal:define-macro="navigation" tal:omit-tag="">
+<ul id="menuNavigation"
+    class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all"
+    tal:define="tabN string:ui-state-default ui-corner-top; tabA string:ui-state-default ui-corner-top ui-state-active;">
+	<li tal:attributes="class php: mainNavItem EQ 'Alunos' ? tabA : tabN">
+		<a href="escola/aluno">Alunos</a>
+	</li>
+	<li tal:attributes="class php: mainNavItem EQ 'Professores' ? tabA : tabN">
+		<a href="escola/professor">Professores</a>
+	</li>
+	<li tal:attributes="class php: mainNavItem EQ 'Turmas' ? tabA : tabN">
+		<a href="escola/turma">Turmas</a>
+	</li>
+</ul>
+</div>

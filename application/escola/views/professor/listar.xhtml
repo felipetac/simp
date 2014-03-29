@@ -1,0 +1,35 @@
+<div metal:use-macro="lista-professores" tal:omit-tag="">
+    <div metal:define-macro="lista-professores" tal:omit-tag="">
+	<div tal:condition="exists: resultado" style="float:right" class="warningMsg msg">
+	    <br /><p>Total de <b tal:content="resultado/getNbResults" /> registros encontrados.</p>
+	</div>
+		<table id="lista-professores" class="result" tal:condition="exists: resultado">
+		    <thead>
+		        <tr>
+		            <th class="ui-state-default">Código</th>
+		            <th class="ui-state-default">Nome</th>
+		            <th class="ui-state-default" style="text-align: center">Ação</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <tr tal:repeat="item resultado/getCurrentPageResults">
+		        	<td class="ui-widget-content codButton" tal:content="string: PROF${item/getId}"  width="15%" />
+		            <td class="ui-widget-content itemConfirm" tal:content="item/getNome"  width="75%" />
+		            <td class="ui-widget-content" style="text-align: center" width="10%">
+		            	<a href="" tal:define="key item/getId" tal:attributes="href string:escola/professor/editar/${key}" class="btnEditar tip">Editar</a>
+		            	<a href="" tal:define="key item/getId" tal:attributes="href string:escola/professor/excluir/${key}" class="btnExcluir tip">Excluir</a>
+		            </td>
+		        </tr>
+		    </tbody>
+		</table>
+		<tal:block metal:use-macro="../application/escola/views/professor/forms.xhtml/pager" />
+		<div tal:condition="not: exists: resultado">
+			<div class="warningMsg ui-state-highlight ui-corner-all msg">
+				<p>
+					<span class="ui-icon ui-icon-alert"></span>
+					<span class="msg-text">Nenhum Resultado Encontrado...</span>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

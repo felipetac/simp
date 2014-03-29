@@ -1,0 +1,55 @@
+<form metal:define-macro="buscar" id="formBuscar" action="escola/aluno/buscar" method="post" class="ui-corner-all">
+	<tal:block metal:use-macro="form-aluno-nome" />
+	<div class="form-actions">
+		<button type="submit" class="btnBuscar">Buscar</button>
+		<a href="escola/aluno" class="btnLimpar">Limpar</a>
+	</div>
+</form>
+
+<form metal:define-macro="pager" id="formPager" action="escola/aluno/buscar" method="post" class="ui-corner-all">
+	<input type="hidden" id="nome" name="nome" tal:attributes="value nome" />
+	<input type="hidden" id="page" name="page" tal:attributes="value resultado/getNextPage" />
+	<div style="text-align:center;">
+		<button type="submit" class="btnText">Mais resultados</button>
+	</div>
+</form>
+
+<form metal:define-macro="gravar" id="formGravar" action="escola/aluno/gravar" method="post" class="ui-corner-all" style="position: relative; top:7px;">
+	<input type="hidden" id="id" name="id" tal:attributes="value aluno/getId | ''" />
+	<tal:block metal:use-macro="form-aluno-nome" />
+	
+	<label for="nome">Aniversario</label>
+	<input type="text" id="aniversario" name="aniversario" style="width: 400px !important;"
+	       tal:define="error aluno/errors/AniversarioError | Nothing; wrng string:input-warning"
+	       tal:attributes="value aluno/getAniversario | ''; class php: (error) ? wrng : ''" />
+	<br />
+	
+	<label for="turma">Turma</label>
+	<select id="turma" name="turma">
+	<option value="" />
+	<tal:block tal:repeat="object turmas">
+		<option tal:define="id object/getId; selected aluno/getTurma/getId | nothing" 
+				tal:attributes="value id; selected php: id EQ selected" 
+				tal:content="object/getNome" />
+	</tal:block>  
+    </select><br />
+		   
+	<label for="observacao">Observações</label>
+	<input type="text" id="observacao" name="observacao" 
+	       style="width: 400px !important;" 
+		   tal:attributes="value aluno/getHistorico/getObservacoes | ''" /><br />
+		   	  
+	<div class="form-actions">
+		<button type="submit" class="btnSalvar">Salvar</button>
+		<a href="escola/aluno" class="btnCancelar">Cancelar</a>
+	</div>
+</form>
+
+<div metal:define-macro="form-aluno-nome" tal:omit-tag="">
+	<label for="nome">Nome</label> 
+	<input type="text" id="nome" name="nome" 
+	       style="width: 400px !important;"
+                   tal:define="error aluno/errors/NomeError | Nothing; wrng string:input-warning"
+		   tal:attributes="value aluno/getNome | nome | ''; class php: (error) ? wrng : ''" />
+	<br />
+</div>

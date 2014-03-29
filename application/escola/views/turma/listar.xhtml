@@ -1,0 +1,31 @@
+<div metal:use-macro="lista-turmas" tal:omit-tag="">
+    <div metal:define-macro="lista-turmas" tal:omit-tag="">
+		<table id="lista-turmas" class="result" tal:condition="exists: resultado">
+		    <thead>
+		        <tr>
+		            <th class="ui-state-default">Código</th>
+		            <th class="ui-state-default">Nome</th>
+		            <th class="ui-state-default" style="text-align: center">Ação</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <tr tal:repeat="item resultado">
+		        	<td class="ui-widget-content codButton" tal:content="string: TUR${item/getId}"  width="15%" />
+		            <td class="ui-widget-content itemConfirm" tal:content="item/getNome"  width="75%" />
+		            <td class="ui-widget-content" style="text-align: center" width="10%">
+		            	<a href="" tal:define="key item/getId" tal:attributes="href string:escola/turma/editar/${key}" class="btnEditar tip">Editar</a>
+		            	<a href="" tal:define="key item/getId" tal:attributes="href string:escola/turma/excluir/${key}" class="btnExcluir tip">Excluir</a>
+		            </td>
+		        </tr>
+		    </tbody>
+		</table>
+		<div tal:condition="not: exists: resultado">
+			<div class="warningMsg ui-state-highlight ui-corner-all msg">
+				<p>
+					<span class="ui-icon ui-icon-alert"></span>
+					<span class="msg-text">Nenhum Resultado Encontrado...</span>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

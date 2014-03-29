@@ -1,0 +1,7 @@
+<div metal:use-macro="../application/site/views/index/main.xhtml/master">
+    <div metal:fill-slot="main"> 
+		<a class="btnNovo" href="escola/professor/novo">Novo</a>
+		<tal:block metal:use-macro="../application/escola/views/professor/forms.xhtml/buscar" />
+		<tal:block metal:use-macro="../application/escola/views/professor/listar.xhtml/lista-professores" />
+    </div>
+</div>

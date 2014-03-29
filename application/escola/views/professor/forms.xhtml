@@ -1,0 +1,59 @@
+<form metal:define-macro="buscar" id="formBuscar" action="escola/professor/buscar" method="post" class="ui-corner-all">
+	<tal:block metal:use-macro="form-professor-nome" />
+	<div class="form-actions">
+		<button type="submit" class="btnBuscar">Buscar</button>
+		<a href="escola/professor" class="btnLimpar">Limpar</a>
+	</div>
+</form>
+
+<form metal:define-macro="pager" tal:condition="resultado/haveToPaginate" id="formPager2" name="formPager2" action="escola/professor/buscar" method="post" class="ui-corner-all">
+	<input type="hidden" id="nome" name="nome" tal:attributes="value nome" />
+	<div style="text-align: center">		
+		<button type="submit" class="btnText" name="page" 
+			tal:attributes="value resultado/getPreviousPage" tal:condition="resultado/hasPreviousPage">Anterior</button>		
+		<button type="submit" name="page"
+			tal:repeat="page php:range(1,resultado.getNbPages())"
+			tal:attributes="value page; class php: resultado.getCurrentPage() == page ? 'disabled btnText' : 'btnText'"
+			tal:content="page" />		
+		<button type="submit" class="btnText" name="page" 
+			tal:attributes="value resultado/getNextPage" tal:condition="resultado/hasNextPage">Proxima</button>
+	</div>
+</form>
+
+<form metal:define-macro="gravar" id="formGravar" action="escola/professor/gravar" method="post" class="ui-corner-all" style="position: relative; top:7px;">
+	<input type="hidden" id="id" name="id" tal:attributes="value id | ''" />
+	<tal:block metal:use-macro="form-professor-nome" />	
+	<tal:block metal:use-macro="form-professor-turmas" />   
+	<div class="form-actions">
+		<button type="submit" class="btnSalvar">Salvar</button>
+		<a href="escola/professor" class="btnCancelar">Cancelar</a>
+	</div>
+</form>
+
+<div metal:define-macro="form-professor-nome" tal:omit-tag="">
+	<label for="nome">Nome</label> 
+	<input type="text" id="nome" name="nome" 
+	       style="width: 400px !important;" 
+		   tal:attributes="value nome | ''" /><br />
+</div>
+
+<div metal:define-macro="form-professor-turmas" tal:omit-tag="">
+	<label for="turmas">Turmas</label>	   
+	<select id="turmas" name="turmas[]" multiple="multiple">	
+		<tal:block tal:repeat="object turmas">
+			<tal:block tal:define="listS turmasSelected | nothing" tal:condition="listS" tal:repeat="selected listS">
+					<option tal:define="id object/getId"
+					        tal:attributes="value id" 
+							tal:content="object/getNome"
+							tal:condition="php: id EQ selected"
+							selected="selected" />
+			</tal:block>
+			<tal:block tal:define="listU turmasUnselected | turmasAll" tal:repeat="unselected listU">
+					<option tal:define="id object/getId"
+					        tal:attributes="value id" 
+							tal:content="object/getNome"
+							tal:condition="php: id EQ unselected" />
+			</tal:block>
+		</tal:block>
+    </select><br />
+</div>

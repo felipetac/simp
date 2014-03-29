@@ -1,0 +1,238 @@
+body {
+    font-size: 75%; 
+    font-family: "Helvetica", "Arial", "sans-serif";
+    background-color: #F2F2F2;
+}
+
+#header {
+   width:880px;
+   margin: 0 auto !important;
+}
+
+#logo {
+    float:left;
+    font-size: 20px;
+    font-weight: bold;
+    color:#86942A;
+    font-style: italic;
+    margin:5px 0 3px 0;
+}
+
+#logo span {
+    color:#000000 !important;   
+}
+           
+#user-actions {    
+    float:right;
+    margin-top:10px;
+}
+
+#user-actions #user {
+    font-weight: bold;
+}
+
+#user-actions .notUser{
+    color:#969696;
+    font-weight: bold;
+    font-style: italic;
+}
+
+h2 {
+	font-size: 13.2px;
+	font-weight: bold;
+	color: #86942a;
+}
+
+form {
+    background-color: #ececec;
+    padding:4px 8px;
+}
+
+form label {
+    float:left;
+    width:170px;
+    margin-top:13px;
+    font-weight: bold;
+    color:#464646;
+}
+
+form label.widthFix {
+    width:auto !important;
+    float:none;
+    margin-top:5px;
+    font-weight: normal;
+    text-transform: none;
+    color:#464646;
+}
+
+.form-actions {
+    clear:both;
+    margin-top:5px;
+    padding:9px 0 7px 0;
+    border-top:1px solid #cccccc;
+}
+
+#application-content, #footer {
+    width:900px;
+    margin: 0 auto;
+    margin-bottom:10px;
+    display: block !important;
+    clear: both !important;
+}
+
+#menuNavigation li {
+    position: relative !important; top:1px !important;
+    margin:0 !important;
+    margin-right:2px !important;
+}
+
+
+#footer {
+    text-align: center;
+    margin-top:10px;
+}
+
+
+.ui-button {margin-left: -1px;}
+.ui-button-text {margin-top:2px !important;}
+.ui-button-icon-only .ui-button-text {} 
+input[type="text"], input[type="password"], .ui-autocomplete-input {margin: 5px 0; padding:8px 4px 6px 4px; position: relative; top:0px;}
+.ui-autocomplete-input {max-width: 500px !important;}
+
+#dateshuffle {position: relative; top:-20px; left:8px;}
+
+input, option, .ui-autocomplete {
+    /*text-transform: uppercase;*/
+}
+
+.notUpperCase {
+    text-transform: none !important;
+}
+
+#logout {
+    text-decoration: none;
+    color: #c50128;
+    font-weight: bold;
+    margin-left:10px;
+    border-left: 1px solid #DDDDDD;
+    padding-left:10px;
+}
+
+.ui-btn-active {
+    border: 1px solid #FCCE7E !important;
+}
+
+.successMsg{
+    background-color: #86942A;
+    color: #ffffff !important;
+}
+
+table.result {
+    width: 100%;
+    margin: 15px 0 0 0 !important;
+    font-size: 13.2px;
+    /*text-transform: uppercase;*/
+}
+
+table.result thead tr th {
+    padding:5px;
+}
+
+table.result tbody tr td {
+    padding:5px;
+}
+
+.successMsgContainer, .errorMsgContainer, .warningMsgContainer {
+	border-bottom: 2px dotted #CCCCCC;
+	margin-bottom:13px;
+}
+
+.warningMsg, .errorMsg, .successMsg {
+	margin-bottom: 7px;
+	padding:2px;
+	clear:both;
+	display: block;
+}
+.msg .ui-icon {
+	float:left;
+	margin-right:4px;
+	margin-top:1px;
+}
+
+.error {
+	border: 1px solid Red !important;
+}
+
+#dynamic-content h2 {
+	float:left !important;
+	margin-top:4px;	
+}
+
+.btnNovo {
+	float:right;
+	margin-bottom:7px;
+	clear:right;
+	margin-right:0 !important;
+	margin-top: -6px !important;
+}
+
+form {
+	display: block;
+	clear:both;
+}
+
+select[multiple] {
+		width: 550px;
+		height: 200px;
+}
+
+.subNav {
+	float:left;
+	margin-top:-6px;
+	margin-left:3px;
+}
+
+.subNav li {
+	display: inline;
+	margin:0 !important;
+}
+
+.subNav li a {
+	margin:0 -2px 0 -3px !important;
+}
+
+.radio {
+position: relative;
+top:-6px;
+}
+
+.radio label {
+	width: auto !important;
+}
+
+.yesButtonWrap {
+	background-color: green;
+	padding: 3px;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+.noButtonWrap {
+	background-color: red;
+	padding: 3px;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+.codButtonWrap {
+	background-color: #86942A;
+	padding: 3px;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+.input-warning {
+    border-color: #FFB400 !important;
+}
+
+

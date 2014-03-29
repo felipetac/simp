@@ -1,0 +1,49 @@
+<div metal:define-macro="error" 
+     class="errorMsgContainer" 
+     tal:condition="exists: error">
+     <div class="errorMsg ui-state-error ui-corner-all msg" 
+	  tal:repeat="item error">
+	      <p>
+			<span class="ui-icon ui-icon-alert"></span> 
+                        <span class="msg-text"
+                              tal:content="item">Mensagem de Erro</span>
+		  </p>
+	 </div>
+</div>
+
+<div metal:define-macro="warning" 
+     class="warningMsgContainer"
+     tal:condition="exists: warning">
+    <tal:block tal:repeat="item warning">
+     <div class="warningMsg ui-state-highlight ui-corner-all msg" 
+	  tal:condition="item">
+	     <p>
+			<span class="ui-icon ui-icon-alert"></span> 
+                        <span class="msg-text"
+                              tal:content="item">Mensagem de Alerta</span>
+		 </p>
+	 </div>
+        </tal:block>
+</div>
+
+<div metal:define-macro="success" 
+     class="successMsgContainer" 
+     tal:condition="exists: success">
+	 <div class="successMsg ui-state-success ui-corner-all msg"  	   
+	      tal:repeat="item success">
+	      <p>
+			<span class="ui-icon ui-icon-alert"></span> 
+                        <span class="msg-text"
+                              tal:content="item">Mensagem de Alerta</span>
+		  </p>
+	 </div>
+</div>
+
+
+<span metal:define-macro="error_validate" 
+      class="warningMsg ui-state-highlight ui-corner-all msg" 
+      tal:condition="errormsg" 
+      style="display: inline-block;">
+		<span class="ui-icon ui-icon-alert"></span>
+		<span class="msg-text" tal:content="errormsg">Mensagem de Erro</span>
+</span>
